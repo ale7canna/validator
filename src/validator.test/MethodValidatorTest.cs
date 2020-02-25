@@ -21,6 +21,16 @@ namespace validator.test
 
             result.Public.Should().Be(true);
         }
+
+        [Fact]
+        private void if_not_specified_method_is_not_public()
+        {
+            var method = "void method()";
+
+            var result = _sut.Compute(method);
+
+            result.Public.Should().Be(false);
+        }
     }
 
 }

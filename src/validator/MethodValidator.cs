@@ -5,7 +5,7 @@ namespace validator
         public Result Compute(string method) =>
             new Result
             {
-                Public = true
+                Public = method.StartsWith("public")
             };
     }
 }
