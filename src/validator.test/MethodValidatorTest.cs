@@ -13,24 +13,23 @@ namespace validator.test
         }
 
         [Fact]
-        private void method_has_public_modifier()
+        private void method_can_be_public()
         {
             var method = "public void method()";
 
             var result = _sut.Compute(method);
 
-            result.Public.Should().Be(true);
+            result.Modifier.Should().BeOfType<Public>();
         }
 
         [Fact]
-        private void if_not_specified_method_is_not_public()
+        private void method_is_internal_by_default()
         {
             var method = "void method()";
 
             var result = _sut.Compute(method);
 
-            result.Public.Should().Be(false);
+            result.Modifier.Should().BeOfType<Internal>();
         }
     }
-
 }
