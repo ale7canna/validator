@@ -6,8 +6,10 @@ namespace validator
             new Result
             {
                 Modifier = method.StartsWith("public") ?
-                    (IModifier) new Public() :
-                    new Internal()
+                    new Public() :
+                    method.StartsWith("private") ?
+                        (IModifier) new Private() :
+                        new Internal()
             };
     }
 }

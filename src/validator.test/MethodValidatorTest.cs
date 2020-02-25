@@ -31,5 +31,15 @@ namespace validator.test
 
             result.Modifier.Should().BeOfType<Internal>();
         }
+
+        [Fact]
+        private void method_can_be_private()
+        {
+            var method = "private void method()";
+
+            var result = _sut.Compute(method);
+
+            result.Modifier.Should().BeOfType<Private>();
+        }
     }
 }
